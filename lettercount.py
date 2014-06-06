@@ -8,16 +8,20 @@ def main():
 
 	f_content = f.read().lower()
 
-	alpha = {}
+
+	alpha_ords = []
 	for n in range (97, 122):
-		alpha[n] = 0
+		alpha_ords.append([n, 0])
+
 
 	for char in f_content:
-		if ord(char) in range(97, 122):
-			alpha[ord(char)] += 1
+			for num in alpha_ords:
+				if ord(char) == num[0]:
+					num[1] += 1
 
-	for letter in sorted(alpha):
-		print alpha[letter]
+
+	for num in alpha_ords:
+		print num[1]
 
 
 if __name__ == "__main__":
